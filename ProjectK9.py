@@ -44,25 +44,18 @@ with tab1:
 with tab2:
     
     st.title("Kalkulator pH Larutan")
-    default_value = 1.0000
+    default_value = 1.0000000000
     
-    jenis_larutan = st.radio("Jenis larutan yang diukur:", ["Asam", "Basa"])
+    jenis_larutan = st.radio("Jenis larutan :", ["Asam", "Basa"])
 
     if jenis_larutan == "Asam":
-        st.write("Larutan asam: HCl, H2SO4, HNO3, dll.")
-        # Input konsentrasi ion hidrogen (H+) dalam mol/L
-        c_H = st.number_input("Masukkan konsentrasi ion H+ (mol/L):", format='%.4f', value=default_value,)
-        # Menghitung pH larutan
-        pH = -math.log10(c_H)
+        konsentrasi_hidrogen = st.number_input("Masukkan konsentrasi ion H+ (mol/L):", format='%.10f', value=default_value,)
+        pH = -math.log10(konsentrasi_hidrogen)
         st.write(f"pH larutan: {pH:.2f}",)     
     
     elif jenis_larutan == "Basa":
-        st.write("Larutan basa: NaOH, KOH, Ca(OH)2, dll.")
-        # Input konsentrasi ion hidroksida (OH-) dalam mol/L
-        c_OH = st.number_input("Masukkan konsentrasi ion OH- (mol/L):", format='%.4f', value=default_value,)
-        # Menghitung pOH larutan
-        pOH = -math.log10(c_OH)
-        # Menghitung pH larutan
+        konsentrasi_hidroksida = st.number_input("Masukkan konsentrasi ion OH- (mol/L):", format='%.10f', value=default_value,)
+        pOH = -math.log10(konsentrasi_hidroksida)
         pH = 14 - pOH
         st.write(f"pH larutan: {pH:.2f}")
           
