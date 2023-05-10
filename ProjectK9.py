@@ -17,29 +17,35 @@ with tab1:
     st.title("Kalkulator Normalitas dan Kadar")
     default_value = 1.0000
     
-    massa = st.number_input('Masukkan nilai massa (mg)',format="%.4f",value=default_value,)
-    volume = st.number_input('Masukkan nilai volume (mL)',format="%.2f",value=default_value,)
-    BE1 = st.number_input('Masukkan nilai BE',format="%.1f",value=default_value,)
-    FP1 = st.number_input('Masukkan nilai F Pengali',format="%.0f",value=default_value,)
+    massa = st.number_input('Masukkan nilai massa (mg)',format="%.4f",value=default_value)
+    volume = st.number_input('Masukkan nilai volume (mL)',format="%.2f",value=default_value)
+    BE1 = st.number_input('Masukkan nilai BE (mg/mgrek)',format="%.1f",value=default_value)
+    FP1 = st.number_input('Masukkan nilai F Pengali',format="%.0f",value=default_value)
 
     tombol = st.button('Hitung nilai normalitasnya')
 
     nilai_normalitas1=massa/(BE1*volume*FP1)
     if tombol:
         nilai_normalitas = massa/(BE1*volume*FP1)
-        st.success(f'Nilai normalitas adalah {nilai_normalitas}')
+        st.success(f'Nilai normalitas adalah {nilai_normalitas:.4f}N')
 
-    Vtitran = st.number_input('Masukkan nilai volume titran (mL)')
+    Vtitran = st.number_input('Masukkan nilai volume titran (mL)',value=default_value)
     Ntitran = st.number_input('Masukkan nilai normalitas titran (N)',format='%.4f', value=(nilai_normalitas1))
-    BE2 = st.number_input('Masukkan nilai BEnya',format="%.1f")
-    FP2 = st.number_input('Masukkan nilai F Pengalinya',format="%.0f")
-    Vtitrat = st.number_input('Masukkan nilai volume titrat (mL)',format="%.0f")
+    BE2 = st.number_input('Masukkan nilai BEnya (mg/mgrek)',format="%.1f",value=default_value)
+    FP2 = st.number_input('Masukkan nilai F Pengalinya',format="%.0f",value=default_value)
+    Vtitrat = st.number_input('Masukkan nilai volume titrat (mL)',format="%.2f",value=default_value)
+    gtitrat = st.number_input('Masukkan nilai massa (g)', format='%.4f',value=default_value )
 
-    tombol = st.button('Hitung nilai kadarnya')
+    tombol1 = st.button('Hitung nilai kadarnya (b/v)')
 
-    if tombol:
+    if tombol1:
         nilai_kadar = (Vtitran*Ntitran*BE2*10**-3*FP2*100)/Vtitrat 
-        st.success(f'Persentase kadarnya adalah {nilai_kadar}%')   
+        st.success(f'Persentase kadarnya adalah {nilai_kadar:.2f}%(b/v)')   
+        
+    tombol2=st.button('Hitung nilai kadarnya (b/b)')
+    if tombol2:
+        nilai_kadar = (Vtitran*Ntitran*BE2*10**-3*FP2*100)/gtitrat
+        st.success(f'Persentase kadarnya adalah {nilai_kadar:.2f}%(b/b)')   
 
 with tab2:
     
