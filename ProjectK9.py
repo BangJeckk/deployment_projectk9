@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-st.title('Aplikasi perhitungan normalitas dan persentase kadar')
+st.title('TitriPro')
 
 st.write('Oleh Kelompok 9')
 st.write('Ali Akbar Mustaqim (2219030)')
