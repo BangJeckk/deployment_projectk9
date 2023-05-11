@@ -17,7 +17,7 @@ with tab1:
     st.title("Kalkulator Normalitas dan Kadar")
     default_value = 1.0000
     
-    massa = st.number_input('Masukkan nilai massa (mg)',format="%.4f",value=default_value)
+    massa = st.number_input('Masukkan nilai massa (mg)',format="%.1f",value=default_value)
     volume = st.number_input('Masukkan nilai volume (mL)',format="%.2f",value=default_value)
     BE1 = st.number_input('Masukkan nilai BE (mg/mgrek)',format="%.1f",value=default_value)
     FP1 = st.number_input('Masukkan nilai F Pengali',format="%.0f",value=default_value)
