@@ -69,6 +69,7 @@ with tab2:
         
         
     elif option=='Perhitungan pH':
+        st.header('Menghitung pH Larutan')
         default_value = 1.0000000000
     
         jenis_larutan = st.radio("Jenis larutan :", ["Asam", "Basa"])
